@@ -1,0 +1,134 @@
+.skills {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 0;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(32px, 5vw, 60px);
+  color: var(--color-text);
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 44px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 56px;
+  align-items: start;
+}
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.barRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.iconBox {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-chip);
+  border: 1px solid rgba(90, 165, 225, 0.22);
+  font-size: 22px;
+}
+
+.barBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.barHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 9px;
+}
+
+.barName {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #cfe3f2;
+}
+
+.barPct {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-accent);
+}
+
+.barTrack {
+  position: relative;
+  height: 6px;
+  border-radius: 6px;
+  background: rgba(90, 165, 225, 0.14);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #1c6fb0, #37b0ff);
+  box-shadow: 0 0 10px rgba(55, 176, 255, 0.5);
+  transition: width 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.techLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(206, 227, 242, 0.55);
+  margin-bottom: 20px;
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.techCard {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 14px;
+  background: var(--color-panel-softer);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.techCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-hover);
+}
+
+.techName {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  color: rgba(206, 227, 242, 0.7);
+  text-align: center;
+}

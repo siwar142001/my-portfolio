@@ -1,0 +1,35 @@
+.page {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  background: linear-gradient(
+    180deg,
+    #0e3f5e 0%,
+    #0b3350 6%,
+    #0a2c48 12%,
+    #08243c 20%,
+    #061d33 30%,
+    #05182b 40%,
+    #041322 52%,
+    #030e1b 64%,
+    #020a15 76%,
+    #01060f 88%,
+    #00040a 100%
+  );
+}
+
+.main {
+  position: relative;
+  z-index: 2;
+  margin-left: 270px;
+  margin-right: 80px;
+  padding: 0 30px;
+}
+
+@media (max-width: 900px) {
+  .main {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 20px;
+  }
+}
