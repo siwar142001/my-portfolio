@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
+  animation: backdropIn 0.28s ease both;
 }
 
 .panel {
@@ -18,6 +19,8 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.6);
+  transform-origin: center;
+  animation: panelZoomIn 0.38s cubic-bezier(0.18, 0.82, 0.22, 1) both;
 }
 
 .media {
@@ -155,4 +158,26 @@
   line-height: 1.7;
   color: rgba(206, 227, 242, 0.82);
   margin-bottom: 26px;
+}
+
+@keyframes backdropIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(6px);
+  }
+}
+
+@keyframes panelZoomIn {
+  from {
+    opacity: 0;
+    transform: translateY(26px) scale(0.82);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }

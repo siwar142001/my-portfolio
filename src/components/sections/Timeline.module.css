@@ -20,24 +20,106 @@
 
 .list {
   position: relative;
-  padding-left: 28px;
-  border-left: 1px solid rgba(90, 165, 225, 0.3);
+  padding-left: 46px;
+}
+
+.list::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  bottom: 28px;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(90, 165, 225, 0.08), rgba(90, 165, 225, 0.4), rgba(90, 165, 225, 0.08));
+}
+
+.list::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  width: 1px;
+  height: 0;
+  background: linear-gradient(180deg, rgba(141, 228, 255, 0), rgba(141, 228, 255, 0.95), rgba(55, 176, 255, 0.22));
+  box-shadow: 0 0 18px rgba(95, 211, 255, 0.75);
+  animation: timelineCurrent 5s ease-in-out infinite;
 }
 
 .entry {
   position: relative;
   padding-bottom: 40px;
+  opacity: 0.72;
+  transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
-.dot {
+.entryLit {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+.beacon {
   position: absolute;
-  left: -35px;
-  top: 5px;
-  width: 12px;
-  height: 12px;
+  left: -48px;
+  top: 0;
+  width: 28px;
+  height: 40px;
+}
+
+.beaconLight {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(120, 210, 245, 0.42);
   border-radius: 50%;
-  background: var(--color-accent);
-  box-shadow: 0 0 12px rgba(55, 176, 255, 0.8);
+  background:
+    radial-gradient(circle at 50% 45%, rgba(95, 206, 255, 0.18), rgba(8, 31, 53, 0.92) 58%),
+    rgba(8, 31, 53, 0.9);
+  transform: translateX(-50%);
+  transition: background 0.45s ease, box-shadow 0.45s ease;
+}
+
+.beaconLight::after {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 1px solid rgba(118, 219, 255, 0);
+  transform: scale(0.35);
+}
+
+.beaconBase {
+  position: absolute;
+  left: 50%;
+  top: 17px;
+  width: 10px;
+  height: 18px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, rgba(73, 132, 168, 0.55), rgba(17, 42, 66, 0.9));
+  transform: translateX(-50%);
+}
+
+.beaconBase::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  width: 24px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(77, 173, 220, 0.18);
+  transform: translateX(-50%);
+}
+
+.entryLit .beaconLight {
+  background:
+    radial-gradient(circle at 50% 45%, #effcff 0 10%, #77dcff 11% 48%, rgba(18, 88, 133, 0.95) 72%);
+  box-shadow: 0 0 16px rgba(100, 215, 255, 0.98), 0 0 42px rgba(100, 215, 255, 0.42), 0 0 90px rgba(100, 215, 255, 0.18);
+}
+
+.entryLit .beaconLight::after {
+  animation: beaconPulse 1.9s ease-out infinite;
 }
 
 .year {
@@ -60,4 +142,23 @@
   font-size: 15px;
   line-height: 1.6;
   color: rgba(206, 227, 242, 0.7);
+}
+
+@keyframes beaconPulse {
+  to {
+    border-color: rgba(118, 219, 255, 0);
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes timelineCurrent {
+  0%,
+  15% {
+    height: 0;
+  }
+  70%,
+  100% {
+    height: calc(100% - 36px);
+  }
 }

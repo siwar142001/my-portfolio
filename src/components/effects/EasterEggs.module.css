@@ -1,0 +1,113 @@
+.layer {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  pointer-events: none;
+}
+
+.hint {
+  position: fixed;
+  left: 34px;
+  bottom: 82px;
+  width: min(280px, calc(100vw - 120px));
+  display: grid;
+  gap: 4px;
+  padding: 11px 13px;
+  border: 1px solid rgba(108, 218, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(2, 13, 25, 0.72);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.32), inset 0 0 22px rgba(55, 176, 255, 0.08);
+  color: rgba(219, 246, 255, 0.82);
+  font-family: var(--font-mono);
+  pointer-events: auto;
+}
+
+.hint span {
+  font-size: 10px;
+  color: rgba(143, 232, 255, 0.74);
+}
+
+.hint strong {
+  font-size: 12px;
+  letter-spacing: 0;
+  color: #e9fbff;
+}
+
+.hint small {
+  font-size: 10px;
+  color: rgba(206, 227, 242, 0.62);
+}
+
+.abyssVeil {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 50% 18%, rgba(26, 93, 130, 0.22), transparent 28%), rgba(0, 0, 0, 0.42);
+  pointer-events: none;
+  animation: abyssIn 0.3s ease both;
+}
+
+.octopus {
+  position: fixed;
+  z-index: 95;
+  left: 50%;
+  bottom: 5vh;
+  width: clamp(280px, 44vw, 660px);
+  aspect-ratio: 1;
+  animation: octopusRise 5.2s ease-in-out forwards;
+}
+
+.octopusImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 44px rgba(65, 198, 255, 0.34)) drop-shadow(0 28px 80px rgba(0, 0, 0, 0.42));
+  animation: octopusFloat 3.2s ease-in-out infinite;
+}
+
+@keyframes abyssIn {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes octopusRise {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(115%) scale(0.9);
+  }
+  18% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+  35% {
+    transform: translateX(-50%) translateY(-18px) scale(1.02);
+  }
+  56% {
+    transform: translateX(-50%) translateY(8px) scale(1);
+  }
+  78% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-12px) scale(1.01);
+  }
+}
+
+@keyframes octopusFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg) scale(1);
+  }
+  50% {
+    transform: translateY(-18px) rotate(1.2deg) scale(1.015);
+  }
+}
+
+@media (max-width: 760px) {
+  .hint {
+    left: 18px;
+    right: 18px;
+    bottom: 126px;
+    width: auto;
+  }
+}

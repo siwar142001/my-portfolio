@@ -9,7 +9,7 @@ interface DepthRulerProps {
 
 export function DepthRuler({ cursorRef, readRef }: DepthRulerProps) {
   return (
-    <div className={styles.ruler}>
+    <div className={styles.ruler} data-depth-ruler>
       <div className={styles.line} />
       {rulerTicks.map((r) => (
         <div key={r.label} className={styles.tick} style={{ top: `${r.top}%` }}>

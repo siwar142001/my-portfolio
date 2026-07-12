@@ -1,19 +1,43 @@
+import { useState } from 'react';
 import { contactEmail } from '../../data/portfolio';
 import { Eyebrow } from '../ui/Eyebrow';
 import { Button } from '../ui/Button';
 import styles from './Contact.module.css';
 
 export function Contact() {
+  const [isSent, setIsSent] = useState(false);
+
+  const sendTransmission = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSent(true);
+  };
+
   return (
     <section id="contact" className={styles.contact}>
+      {isSent && <div className={styles.wave} aria-hidden="true" />}
       <div className={styles.inner}>
         <Eyebrow center>Contact · 1000 m</Eyebrow>
-        <h2 className={styles.title}>Prêt·e à plonger ensemble ?</h2>
-        <p className={styles.pitch}>
-          Une idée, un projet ou juste envie de discuter ? Je suis toujours ouverte aux nouvelles opportunités.
-        </p>
+        <h2 className={styles.title}>Radio de sous-marin</h2>
+        <p className={styles.pitch}>Transmission ouverte. Envoyez un signal, je remonte vers vous.</p>
+        <form className={`${styles.radio} ${isSent ? styles.radioSent : ''}`} onSubmit={sendTransmission}>
+          <div className={styles.radioHeader}>
+            <span className={styles.statusLight} />
+            <span>{isSent ? 'Transmission envoyée' : 'Transmission en attente'}</span>
+          </div>
+          <label className={styles.field}>
+            <span>Nom</span>
+            <input type="text" name="name" placeholder="Votre nom" required />
+          </label>
+          <label className={styles.field}>
+            <span>Message</span>
+            <textarea name="message" rows={5} placeholder="Votre message" required />
+          </label>
+          <button type="submit" className={styles.sendButton}>
+            Envoyer la transmission
+          </button>
+        </form>
         <div className={styles.actions}>
-          <Button href={`mailto:${contactEmail}`}>✉ Me contacter</Button>
+          <Button href={`mailto:${contactEmail}`}>Email direct</Button>
           <Button href="#" variant="secondary">
             <i className="devicon-github-original" style={{ fontSize: 16 }} />
             GitHub

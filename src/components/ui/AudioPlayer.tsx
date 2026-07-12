@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './AudioPlayer.module.css';
 
-export function AudioPlayer() {
+interface AudioPlayerProps {
+  shouldPlay?: boolean;
+}
+
+export function AudioPlayer({ shouldPlay = false }: AudioPlayerProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isMuted, setIsMuted] = useState(true);
 
@@ -24,6 +28,13 @@ export function AudioPlayer() {
         setIsMuted(true);
       });
   }, []);
+
+  useEffect(() => {
+    if (!shouldPlay || !audioRef.current) return;
+    audioRef.current.muted = false;
+    audioRef.current.play().catch(() => {});
+    setIsMuted(false);
+  }, [shouldPlay]);
 
   const toggleMute = () => {
     if (!audioRef.current) return;

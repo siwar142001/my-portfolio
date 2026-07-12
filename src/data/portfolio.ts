@@ -202,6 +202,11 @@ export const techs: Tech[] = [
   { name: 'Docker', icon: 'devicon-docker-plain colored' },
   { name: 'Tailwind', icon: 'devicon-tailwindcss-original colored' },
   { name: 'Git', icon: 'devicon-git-plain colored' },
+  { name: 'Unity', icon: 'devicon-unity-plain colored' },
+  { name: 'Flutter', icon: 'devicon-flutter-plain colored' },
+  { name: 'C#', icon: 'devicon-csharp-plain colored' },
+  { name: 'Java', icon: 'devicon-java-plain colored' },
+  { name: 'MySQL', icon: 'devicon-mysql-plain colored' },
 ];
 
 export const timeline: TimelineEntry[] = [
