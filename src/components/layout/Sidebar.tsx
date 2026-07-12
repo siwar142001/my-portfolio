@@ -16,10 +16,10 @@ export function Sidebar() {
         ))}
       </nav>
       <div className={styles.social}>
-        <a href="#" className={styles.iconLink} aria-label="GitHub">
+        <a href="https://github.com/siwar142001" className={styles.iconLink} aria-label="GitHub">
           <i className="devicon-github-original" />
         </a>
-        <a href="#" className={styles.iconLink} aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/siwar142001/" className={styles.iconLink} aria-label="LinkedIn">
           <i className="devicon-linkedin-plain" />
         </a>
         <a href={`mailto:${contactEmail}`} className={styles.iconLink} aria-label="Email">

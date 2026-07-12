@@ -17,7 +17,7 @@ export function About() {
             Curieuse, rigoureuse et autonome, j'aime relever des défis techniques et transformer des idées en
             solutions concrètes.
           </p>
-          <Button href="#" variant="secondary">
+          <Button href="/CV-Siwar.pdf" download variant="secondary">
             ↓ Télécharger le CV
           </Button>
         </div>

@@ -1,0 +1,40 @@
+.player {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+}
+
+.shellButton {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(90, 165, 225, 0.35);
+  background: rgba(4, 14, 26, 0.78);
+  color: #d8efff;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.shellButton:hover {
+  transform: translateY(-1px);
+  background: rgba(90, 165, 225, 0.18);
+}
+
+.muted {
+  opacity: 0.75;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.unmuted {
+  opacity: 1;
+  border-color: rgba(90, 165, 225, 0.9);
+}

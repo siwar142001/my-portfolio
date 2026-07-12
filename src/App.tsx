@@ -8,6 +8,7 @@ import { Skills } from './components/sections/Skills';
 import { Projects } from './components/sections/Projects';
 import { Timeline } from './components/sections/Timeline';
 import { Contact } from './components/sections/Contact';
+import { AudioPlayer } from './components/ui/AudioPlayer';
 import { useOceanScene } from './hooks/useOceanScene';
 import styles from './App.module.css';
 
@@ -32,6 +33,8 @@ function App() {
         <Timeline />
         <Contact />
       </main>
+
+      <AudioPlayer />
     </div>
   );
 }

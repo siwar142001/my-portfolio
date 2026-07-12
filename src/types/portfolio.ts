@@ -25,6 +25,8 @@ export interface Project {
   desc: string;
   tags: string[];
   detail: string;
+  images?: string[];
+  url?: string;
 }
 
 export interface SkillBar {
