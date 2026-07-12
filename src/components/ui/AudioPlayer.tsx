@@ -8,6 +8,7 @@ interface AudioPlayerProps {
 export function AudioPlayer({ shouldPlay = false }: AudioPlayerProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isMuted, setIsMuted] = useState(true);
+  const audioSrc = `${import.meta.env.BASE_URL}ocean-ambiance.mp3`;
 
   useEffect(() => {
     if (!audioRef.current) return;
@@ -48,7 +49,7 @@ export function AudioPlayer({ shouldPlay = false }: AudioPlayerProps) {
   return (
     <div className={styles.player}>
       {/* Use the plain HTML muted attribute to increase autoplay reliability */}
-      <audio ref={audioRef} src="/ocean-ambiance.mp3" preload="auto" autoPlay loop muted />
+      <audio ref={audioRef} src={audioSrc} preload="auto" autoPlay loop muted />
       <button
         type="button"
         aria-label={isMuted ? 'Activer musique océan' : 'Couper musique océan'}

@@ -3,6 +3,8 @@ import { Button } from '../ui/Button';
 import styles from './About.module.css';
 
 export function About() {
+  const cvUrl = `${import.meta.env.BASE_URL}lastCV.pdf`;
+
   return (
     <section id="apropos" className={styles.about}>
       <div className={styles.grid}>
@@ -17,7 +19,7 @@ export function About() {
             Curieuse, rigoureuse et autonome, j'aime relever des défis techniques et transformer des idées en
             solutions concrètes.
           </p>
-          <Button href="/lastCV.pdf" download variant="secondary">
+          <Button href={cvUrl} download variant="secondary">
             ↓ Télécharger le CV
           </Button>
         </div>
