@@ -17,6 +17,7 @@
     #01060f 88%,
     #00040a 100%
   );
+  background-position: center var(--dive-bg-shift, 0);
 }
 
 .page::before {
@@ -29,7 +30,8 @@
     radial-gradient(circle at 30% 0%, rgba(120, 210, 255, 0.18), transparent 26%),
     linear-gradient(105deg, transparent 0 16%, rgba(126, 220, 255, 0.055) 22%, transparent 30% 52%, rgba(126, 220, 255, 0.04) 58%, transparent 67%);
   mix-blend-mode: screen;
-  opacity: 0.7;
+  opacity: calc(0.72 - var(--dive-depth, 0) * 0.2);
+  transform: translateY(var(--dive-ray-shift, 0));
 }
 
 .page::after {
@@ -40,9 +42,13 @@
   pointer-events: none;
   background:
     repeating-radial-gradient(ellipse at 50% 12%, rgba(170, 235, 255, 0.055) 0 2px, transparent 3px 42px);
-  opacity: 0.28;
-  transform: translate3d(0, 0, 0);
+  opacity: calc(0.22 + var(--dive-speed, 0) * 0.18);
+  transform: translate3d(0, var(--dive-caustic-shift, 0), 0);
   animation: caustics 14s linear infinite;
+}
+
+.page::selection {
+  background: rgba(55, 176, 255, 0.32);
 }
 
 .ambientLife {
@@ -54,6 +60,7 @@
   height: 32vh;
   pointer-events: none;
   overflow: hidden;
+  transform: translateY(var(--dive-life-shift, 0));
 }
 
 .ambientLife span {
@@ -103,6 +110,7 @@
   z-index: 1;
   pointer-events: none;
   overflow: hidden;
+  transform: translateY(var(--dive-creature-shift, 0));
 }
 
 .ambientWhale {
@@ -183,6 +191,23 @@
   margin-left: 300px;
   margin-right: 80px;
   padding: 0 24px;
+}
+
+.main::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 18%, transparent 0 30%, rgba(0, 3, 12, var(--dive-darkness, 0.08)) 78%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 5, 16, calc(var(--dive-depth, 0) * 0.3)));
+}
+
+.main > section {
+  animation: sectionDive both;
+  animation-timeline: view();
+  animation-range: entry 4% cover 34%;
 }
 
 @media (max-width: 1180px) {
@@ -266,5 +291,22 @@
   100% {
     transform: translate3d(152vw, 8px, 0) scale(1);
     opacity: 0;
+  }
+}
+
+@keyframes sectionDive {
+  from {
+    opacity: 0.32;
+    transform: translateY(58px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@supports not (animation-timeline: view()) {
+  .main > section {
+    animation: none;
   }
 }

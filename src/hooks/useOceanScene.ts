@@ -121,11 +121,28 @@ export function useOceanScene(
 
     let t = 0;
     let rafId = 0;
+    let lastScrollY = window.scrollY;
+    let lastFrameTime = performance.now();
 
     const frame = () => {
       t += 1;
       const total = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
       const d = clamp(window.scrollY / total, 0, 1);
+      const now = performance.now();
+      const frameDelta = Math.max(16, now - lastFrameTime);
+      const scrollSpeed = clamp(Math.abs(window.scrollY - lastScrollY) / frameDelta, 0, 2.8);
+      const speedBoost = smooth(0.05, 1.6, scrollSpeed);
+      lastScrollY = window.scrollY;
+      lastFrameTime = now;
+
+      document.documentElement.style.setProperty('--dive-depth', d.toFixed(4));
+      document.documentElement.style.setProperty('--dive-speed', speedBoost.toFixed(4));
+      document.documentElement.style.setProperty('--dive-bg-shift', `${Math.round(d * -63)}px`);
+      document.documentElement.style.setProperty('--dive-ray-shift', `${Math.round(d * -50)}px`);
+      document.documentElement.style.setProperty('--dive-caustic-shift', `${Math.round(d * -32)}px`);
+      document.documentElement.style.setProperty('--dive-life-shift', `${Math.round(d * -28)}px`);
+      document.documentElement.style.setProperty('--dive-creature-shift', `${Math.round(d * -61)}px`);
+      document.documentElement.style.setProperty('--dive-darkness', (0.08 + d * 0.42).toFixed(4));
       ctx.clearRect(0, 0, W, H);
 
       const rayA = 1 - smooth(0.12, 0.5, d);
@@ -147,7 +164,7 @@ export function useOceanScene(
       const snowA = 0.25 + 0.6 * smooth(0.05, 0.95, d);
       ctx.fillStyle = `rgba(205,228,244,${0.5 * snowA})`;
       for (const p of snow) {
-        p.y += p.sp * (1 + d);
+        p.y += p.sp * (1 + d + speedBoost * 4.2);
         p.x += p.dx;
         if (p.y > 1) {
           p.y = 0;
@@ -194,7 +211,7 @@ export function useOceanScene(
       ctx.strokeStyle = `rgba(190,225,240,${0.3 + 0.2 * (1 - d)})`;
       ctx.lineWidth = 1;
       for (const b of bubbles) {
-        b.y -= b.sp;
+        b.y -= b.sp * (1 + speedBoost * 2.4);
         b.w += 0.03;
         if (b.y < -0.02) {
           b.y = 1.02;
@@ -264,6 +281,16 @@ export function useOceanScene(
       cancelAnimationFrame(rafId);
       window.removeEventListener('resize', resize);
       window.removeEventListener('pointerdown', onPointerDown);
+      [
+        '--dive-depth',
+        '--dive-speed',
+        '--dive-bg-shift',
+        '--dive-ray-shift',
+        '--dive-caustic-shift',
+        '--dive-life-shift',
+        '--dive-creature-shift',
+        '--dive-darkness',
+      ].forEach((property) => document.documentElement.style.removeProperty(property));
     };
   }, [canvasRef, depthCursorRef, depthReadRef]);
 }

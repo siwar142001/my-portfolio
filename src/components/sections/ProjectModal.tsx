@@ -14,6 +14,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const gallery = project.images || [project.src];
   const currentImage = gallery[currentImageIndex];
+  const isMobileShowcase = project.display === 'mobile';
 
   const goToPrevious = () => {
     setCurrentImageIndex((prev) => (prev === 0 ? gallery.length - 1 : prev - 1));
@@ -25,9 +26,22 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
   return (
     <div className={styles.backdrop} onClick={onClose}>
-      <div className={styles.panel} onClick={stop}>
-        <div className={styles.media}>
-          <img src={currentImage} alt={`${project.title} ${currentImageIndex + 1}`} className={styles.image} />
+      <div className={`${styles.panel} ${isMobileShowcase ? styles.mobilePanel : ''}`} onClick={stop}>
+        <div className={`${styles.media} ${isMobileShowcase ? styles.mobileMedia : ''}`}>
+          {isMobileShowcase && <div className={styles.phoneGlow} aria-hidden="true" />}
+          <div className={isMobileShowcase ? styles.phoneFrame : undefined}>
+            {isMobileShowcase && (
+              <>
+                <span className={styles.phoneSpeaker} />
+                <span className={styles.phoneButton} />
+              </>
+            )}
+            <img
+              src={currentImage}
+              alt={`${project.title} ${currentImageIndex + 1}`}
+              className={`${styles.image} ${isMobileShowcase ? styles.mobileImage : ''}`}
+            />
+          </div>
           <div className={styles.overlay} />
           <span className={styles.badge}>{project.cat}</span>
           {gallery.length > 1 && (

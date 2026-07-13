@@ -17,7 +17,7 @@ export function Hero() {
           particulière au détail et à l'expérience utilisateur.
         </p>
         <div className={styles.actions}>
-          <Button href="#projets">Explorer mes projets →</Button>
+          <Button href="#projets">Explorer mes projets</Button>
           <Button href="#apropos" variant="secondary">
             En savoir plus
           </Button>

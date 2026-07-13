@@ -5,24 +5,93 @@
   pointer-events: none;
 }
 
-.hint {
+.hub {
   position: fixed;
-  left: 34px;
-  bottom: 82px;
-  width: min(280px, calc(100vw - 120px));
-  display: grid;
-  gap: 4px;
-  padding: 11px 13px;
-  border: 1px solid rgba(108, 218, 255, 0.28);
-  border-radius: 8px;
-  background: rgba(2, 13, 25, 0.72);
-  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.32), inset 0 0 22px rgba(55, 176, 255, 0.08);
-  color: rgba(219, 246, 255, 0.82);
-  font-family: var(--font-mono);
+  left: 292px;
+  bottom: 26px;
+  z-index: 96;
   pointer-events: auto;
 }
 
-.hint span {
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 14px 0 9px;
+  border: 1px solid rgba(108, 218, 255, 0.42);
+  border-radius: 999px;
+  background: rgba(2, 13, 25, 0.78);
+  color: rgba(219, 246, 255, 0.86);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 16px 46px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(55, 176, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.trigger:hover,
+.trigger[aria-expanded='true'] {
+  border-color: rgba(126, 229, 255, 0.78);
+  box-shadow: 0 0 26px rgba(55, 176, 255, 0.28), inset 0 0 24px rgba(55, 176, 255, 0.12);
+}
+
+.triggerIcon {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(55, 176, 255, 0.18);
+  color: #8fe8ff;
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: inset 0 0 12px rgba(143, 232, 255, 0.16);
+}
+
+.triggerText {
+  white-space: nowrap;
+}
+
+.hint {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 12px);
+  width: min(330px, calc(100vw - 330px));
+  display: grid;
+  gap: 8px;
+  padding: 13px 14px;
+  border: 1px solid rgba(108, 218, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(2, 13, 25, 0.9);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.32), inset 0 0 22px rgba(55, 176, 255, 0.08);
+  color: rgba(219, 246, 255, 0.82);
+  font-family: var(--font-mono);
+  backdrop-filter: blur(12px);
+  animation: hintIn 0.18s ease both;
+}
+
+.hintHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.hintHeader button {
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 6px;
+  background: rgba(143, 232, 255, 0.08);
+  color: rgba(219, 246, 255, 0.82);
+  cursor: pointer;
+  font: inherit;
+}
+
+.hintHeader span {
   font-size: 10px;
   color: rgba(143, 232, 255, 0.74);
 }
@@ -35,6 +104,7 @@
 
 .hint small {
   font-size: 10px;
+  line-height: 1.45;
   color: rgba(206, 227, 242, 0.62);
 }
 
@@ -103,11 +173,43 @@
   }
 }
 
-@media (max-width: 760px) {
-  .hint {
+@keyframes hintIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (max-width: 1180px) {
+  .hub {
     left: 18px;
-    right: 18px;
-    bottom: 126px;
-    width: auto;
+    bottom: 22px;
+  }
+
+  .hint {
+    width: min(330px, calc(100vw - 36px));
+  }
+}
+
+@media (max-width: 760px) {
+  .hub {
+    left: 14px;
+    bottom: 20px;
+  }
+
+  .hint {
+    bottom: calc(100% + 10px);
+    width: min(310px, calc(100vw - 28px));
+  }
+
+  .trigger {
+    height: 40px;
+    padding-right: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .triggerText {
+    display: none;
   }
 }

@@ -27,6 +27,7 @@ export interface Project {
   detail: string;
   images?: string[];
   url?: string;
+  display?: 'default' | 'mobile';
 }
 
 export interface SkillBar {
@@ -44,4 +45,8 @@ export interface TimelineEntry {
   year: string;
   role: string;
   detail: string;
+  place?: string;
+  missionsTitle?: string;
+  missions?: string[];
+  technologies?: string[];
 }

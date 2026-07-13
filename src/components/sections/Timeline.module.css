@@ -138,10 +138,60 @@
   margin-bottom: 6px;
 }
 
+.place {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  color: var(--color-accent-soft);
+  margin-bottom: 10px;
+}
+
 .detail {
   font-size: 15px;
   line-height: 1.6;
   color: rgba(206, 227, 242, 0.7);
+}
+
+.block {
+  margin-top: 14px;
+}
+
+.blockTitle {
+  margin-bottom: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: rgba(143, 232, 255, 0.8);
+}
+
+.missions {
+  display: grid;
+  gap: 6px;
+  padding-left: 18px;
+  color: rgba(206, 227, 242, 0.72);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.missions li::marker {
+  color: var(--color-accent);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags span {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-accent-soft);
+  border: 1px solid rgba(55, 176, 255, 0.26);
+  border-radius: 999px;
+  background: rgba(55, 176, 255, 0.08);
+  padding: 4px 10px;
 }
 
 @media (max-width: 760px) {
@@ -166,6 +216,10 @@
 
   .role {
     font-size: 20px;
+  }
+
+  .missions {
+    font-size: 13px;
   }
 }
 

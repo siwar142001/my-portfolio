@@ -97,6 +97,7 @@ export const projects: Project[] = [
       "Kanilo est une plateforme intuitive dédiée au bien-être animal, connectant les propriétaires de compagnons avec les meilleurs professionnels du secteur. Alliant sérénité et modernité, elle simplifie la gestion de la santé animale grâce à une interface douce, fluide et accessible à tous.",
     images: [proj4_1, proj4_a, proj4_b, proj4_c, proj4_d, proj4_e, proj4_f, proj4_h, proj4_j],
     url: 'https://kanilo.fr/',
+    display: 'mobile',
   },
   {
     slotId: 'proj-5',
@@ -172,6 +173,7 @@ export const projects: Project[] = [
     detail:
       "Image Quiz est une application Android éducative qui teste les connaissances sur les animaux, les couleurs et les formes à partir d'images. Le joueur répond aux questions illustrées, reçoit un score basé sur la rapidité et la précision, et peut revoir ses réponses pour apprendre en s'amusant.",
     images: [proj10_img],
+    display: 'mobile',
   },
 ];
 
@@ -211,19 +213,65 @@ export const techs: Tech[] = [
 
 export const timeline: TimelineEntry[] = [
   {
-    year: '2024 — présent',
-    role: 'Développeuse Full-stack',
-    detail: 'Poste ou mission actuelle — décris tes responsabilités, la stack utilisée et un accomplissement marquant.',
+    year: "2026 — Aujourd'hui",
+    role: 'Développeuse Full-Stack (Alternance)',
+    place: 'EVA – Réalité Virtuelle',
+    detail:
+      "Développement d'un prototype de jeu de tir en réalité virtuelle en participant à la conception des mécaniques de gameplay et des interactions utilisateur.",
+    missionsTitle: 'Missions',
+    missions: [
+      'Développement de fonctionnalités en C#',
+      'Implémentation des interactions VR avec OpenXR',
+      'Conception de mécaniques de gameplay',
+      'Travail collaboratif avec Git',
+    ],
+    technologies: ['Unity', 'C#', 'OpenXR', 'Git', 'SOLID', 'VR'],
   },
   {
-    year: '2022 — 2024',
-    role: 'Développeuse Front-end',
-    detail: 'Expérience précédente — projets menés, technologies employées et ce que tu y as appris.',
+    year: '2025',
+    role: 'Stage Développeuse Full-Stack',
+    place: 'ENGIE Lab CRIGEN (France)',
+    detail:
+      "Développement de nouvelles fonctionnalités pour Swagger Editor dans le cadre d'un projet open source dédié aux modèles de données du Web sémantique.",
+    missionsTitle: 'Missions',
+    missions: [
+      'Développement de nouvelles fonctionnalités',
+      "Modélisation d'interfaces API enrichies",
+      'Participation à un projet Open Source',
+      'Travail en méthode Agile (Scrum)',
+    ],
+    technologies: ['React', 'Linux', 'GitLab', 'Swagger', 'SOLID', 'Scrum'],
   },
   {
-    year: '2021 — 2022',
-    role: 'Formation & premiers projets',
-    detail: 'Le point de départ — formation, premiers pas et projets fondateurs.',
+    year: '2024',
+    role: 'Bachelor Développement Web',
+    place: 'France',
+    detail: 'Formation spécialisée en développement web full-stack.',
+    missionsTitle: 'Compétences acquises',
+    missions: [
+      "Conception d'applications web",
+      'Développement sécurisé',
+      'Analyse des besoins utilisateurs',
+      'Méthodes Agiles',
+    ],
+  },
+  {
+    year: '2023',
+    role: "Bachelier Technologies de l'Informatique",
+    place: 'Belgique',
+    detail: 'Formation orientée programmation, réseaux, cybersécurité et virtualisation.',
+    missionsTitle: 'Domaines étudiés',
+    missions: ['Développement logiciel', 'Réseaux', 'Sécurité', 'Virtualisation'],
+  },
+  {
+    year: '2020',
+    role: '7ème spéciale en Sciences',
+    detail: 'Année de spécialisation scientifique.',
+  },
+  {
+    year: '2019',
+    role: 'Baccalauréat Scientifique',
+    detail: 'Formation scientifique générale.',
   },
 ];
 

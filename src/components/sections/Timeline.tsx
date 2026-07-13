@@ -46,7 +46,28 @@ export function Timeline() {
             </div>
             <p className={styles.year}>{e.year}</p>
             <h3 className={styles.role}>{e.role}</h3>
+            {e.place && <p className={styles.place}>{e.place}</p>}
             <p className={styles.detail}>{e.detail}</p>
+            {e.missions && e.missions.length > 0 && (
+              <div className={styles.block}>
+                <p className={styles.blockTitle}>{e.missionsTitle ?? 'Missions'}</p>
+                <ul className={styles.missions}>
+                  {e.missions.map((mission) => (
+                    <li key={mission}>{mission}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {e.technologies && e.technologies.length > 0 && (
+              <div className={styles.block}>
+                <p className={styles.blockTitle}>Technologies</p>
+                <div className={styles.tags}>
+                  {e.technologies.map((tech) => (
+                    <span key={tech}>{tech}</span>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         ))}
       </div>

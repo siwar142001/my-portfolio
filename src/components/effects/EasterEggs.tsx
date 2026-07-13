@@ -21,6 +21,7 @@ export function EasterEggs() {
   const sequenceRef = useRef<string[]>([]);
   const [showOctopus, setShowOctopus] = useState(false);
   const [abyss, setAbyss] = useState(false);
+  const [isHintOpen, setIsHintOpen] = useState(false);
   const [konamiProgress, setKonamiProgress] = useState(0);
 
   const triggerOctopus = () => {
@@ -60,6 +61,9 @@ export function EasterEggs() {
 
       sequenceRef.current = bestMatch;
       setKonamiProgress(sequenceRef.current.length);
+      if (sequenceRef.current.length > 0) {
+        setIsHintOpen(true);
+      }
 
       if (sequenceRef.current.join(',') === konami.join(',')) {
         triggerOctopus();
@@ -82,16 +86,36 @@ export function EasterEggs() {
 
   return (
     <div className={`${styles.layer} ${abyss ? styles.abyss : ''}`}>
-      <div className={styles.hint} aria-live="polite">
-        <span>Signaux secrets</span>
-        <strong>↑ ↑ ↓ ↓ ← → ← → B A</strong>
-        <small>
-          {showOctopus
-            ? 'Signal recu: poulpe detecte'
-            : konamiProgress > 0
-              ? `${konamiProgress}/${konami.length}`
-              : 'Double-clique la profondeur pour le mode abyssal'}
-        </small>
+      <div className={styles.hub}>
+        {isHintOpen && (
+          <div className={styles.hint} aria-live="polite">
+            <div className={styles.hintHeader}>
+              <span>Signaux secrets</span>
+              <button type="button" onClick={() => setIsHintOpen(false)} aria-label="Fermer les signaux secrets">
+                x
+              </button>
+            </div>
+            <strong>↑ ↑ ↓ ↓ ← → ← → B A</strong>
+            <small>
+              {showOctopus
+                ? 'Signal recu: poulpe detecte'
+                : konamiProgress > 0
+                  ? `Progression: ${konamiProgress}/${konami.length}`
+                  : 'Teste le code pour reveler le poulpe.'}
+            </small>
+            <small>Double-clique la profondeur pour le mode abyssal.</small>
+          </div>
+        )}
+        <button
+          type="button"
+          className={styles.trigger}
+          onClick={() => setIsHintOpen((current) => !current)}
+          aria-expanded={isHintOpen}
+          aria-label="Afficher les easter eggs"
+        >
+          <span className={styles.triggerIcon} aria-hidden="true">?</span>
+          <span className={styles.triggerText}>secret</span>
+        </button>
       </div>
       {abyss && <div className={styles.abyssVeil} aria-hidden="true" />}
       {showOctopus && (

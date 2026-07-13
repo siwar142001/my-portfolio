@@ -8,16 +8,29 @@ export function About() {
   return (
     <section id="apropos" className={styles.about}>
       <div className={styles.grid}>
-        <div>
-          <Eyebrow>À propos</Eyebrow>
-          <h2 className={styles.title}>Développeuse full stack, exploratrice des profondeurs du code</h2>
+        <div className={styles.logbook}>
+          <Eyebrow>Journal de bord</Eyebrow>
+          <h2 className={styles.title}>Jour 102, exploration du développement web</h2>
           <p className={styles.paragraph}>
-            Passionnée par le développement et les nouvelles technologies, je suis spécialisée dans la création
-            d'applications web performantes et évolutives.
+            Cap maintenu vers les interfaces modernes, les applications performantes et les expériences web qui
+            restent fluides, claires et utiles.
           </p>
+          <div className={styles.entries} aria-label="Entrées du journal de bord">
+            <article className={styles.entry}>
+              <span>Observation 01</span>
+              <p>Concevoir des interfaces propres, responsives et agréables à utiliser, avec une attention forte au détail.</p>
+            </article>
+            <article className={styles.entry}>
+              <span>Observation 02</span>
+              <p>Développer des fonctionnalités full stack solides, du frontend React jusqu'aux APIs et bases de données.</p>
+            </article>
+            <article className={styles.entry}>
+              <span>Observation 03</span>
+              <p>Explorer différents environnements : web, mobile, jeux 3D, outils API et projets collaboratifs.</p>
+            </article>
+          </div>
           <p className={styles.paragraphSoft}>
-            Curieuse, rigoureuse et autonome, j'aime relever des défis techniques et transformer des idées en
-            solutions concrètes.
+            Curieuse, rigoureuse et autonome, je transforme les idées en solutions concrètes et bien structurées.
           </p>
           <Button href={cvUrl} download variant="secondary">
             ↓ Télécharger le CV

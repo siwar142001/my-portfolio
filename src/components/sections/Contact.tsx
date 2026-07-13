@@ -38,11 +38,11 @@ export function Contact() {
         </form>
         <div className={styles.actions}>
           <Button href={`mailto:${contactEmail}`}>Email direct</Button>
-          <Button href="#" variant="secondary">
+          <Button href="https://github.com/siwar142001" target="_blank" rel="noreferrer" variant="secondary">
             <i className="devicon-github-original" style={{ fontSize: 16 }} />
             GitHub
           </Button>
-          <Button href="#" variant="secondary">
+          <Button href="https://www.linkedin.com/in/siwar142001/" target="_blank" rel="noreferrer" variant="secondary">
             <i className="devicon-linkedin-plain" style={{ fontSize: 16 }} />
             LinkedIn
           </Button>
