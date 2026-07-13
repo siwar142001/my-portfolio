@@ -33,6 +33,13 @@ export function EasterEggs() {
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement | null;
+      if (
+        target?.closest('input, textarea, select, [contenteditable="true"]')
+      ) {
+        return;
+      }
+
       const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
       const isKonamiKey = konami.includes(key);
       if (!isKonamiKey) return;

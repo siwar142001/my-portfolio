@@ -179,16 +179,49 @@
 .main {
   position: relative;
   z-index: 2;
-  margin-left: 270px;
+  width: min(1180px, calc(100% - 350px));
+  margin-left: 300px;
   margin-right: 80px;
-  padding: 0 30px;
+  padding: 0 24px;
+}
+
+@media (max-width: 1180px) {
+  .main {
+    width: auto;
+    margin-left: 270px;
+    margin-right: 40px;
+    padding: 0 18px;
+  }
 }
 
 @media (max-width: 900px) {
   .main {
     margin-left: 0;
     margin-right: 0;
-    padding: 0 20px;
+    padding: 86px 18px 0;
+  }
+
+  .page {
+    cursor: auto;
+  }
+
+  .ambientWhale {
+    width: clamp(260px, 72vw, 520px);
+    opacity: 0.22;
+  }
+
+  .ambientJellyfish span {
+    opacity: 0.18;
+  }
+}
+
+@media (max-width: 560px) {
+  .main {
+    padding: 78px 14px 0;
+  }
+
+  .ambientLife {
+    height: 22vh;
   }
 }
 

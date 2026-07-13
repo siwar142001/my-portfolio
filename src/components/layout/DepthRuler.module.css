@@ -67,3 +67,22 @@
   text-shadow: 0 1px 6px #000;
   transition: top 0.1s linear;
 }
+
+@media (max-width: 1180px) {
+  .ruler {
+    right: 8px;
+    width: 48px;
+    opacity: 0.62;
+  }
+
+  .tickLabel,
+  .readout {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 760px) {
+  .ruler {
+    display: none;
+  }
+}

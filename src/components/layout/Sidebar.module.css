@@ -80,3 +80,71 @@
   font-size: 18px;
   color: #cfe3f2;
 }
+
+@media (max-width: 900px) {
+  .sidebar {
+    left: 12px;
+    right: 12px;
+    top: 12px;
+    bottom: auto;
+    width: auto;
+    min-height: 56px;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 12px;
+  }
+
+  .logo {
+    flex: none;
+    margin: 0;
+    font-size: 20px;
+  }
+
+  .nav {
+    flex: 1;
+    min-width: 0;
+    flex-direction: row;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navlink {
+    flex: none;
+    padding: 9px 10px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    white-space: nowrap;
+  }
+
+  .bullet {
+    display: none;
+  }
+
+  .social {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .sidebar {
+    gap: 8px;
+    padding: 9px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .navlink {
+    padding: 8px;
+    font-size: 9px;
+  }
+}

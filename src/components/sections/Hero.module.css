@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 96px 0 60px;
+  overflow: hidden;
 }
 
 .intro {
@@ -73,7 +74,7 @@
   z-index: 2;
   margin-top: 56px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -137,4 +138,75 @@
   background: var(--color-accent);
   box-shadow: 0 0 8px var(--color-accent);
   animation: scrollcue 1.8s ease-in-out infinite;
+}
+
+@media (max-width: 1180px) {
+  .intro {
+    max-width: 560px;
+  }
+
+  .name {
+    font-size: clamp(46px, 8vw, 78px);
+  }
+
+  .role {
+    letter-spacing: 3px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: auto;
+    padding: 54px 0 42px;
+  }
+
+  .intro {
+    max-width: 100%;
+  }
+
+  .name {
+    font-size: clamp(44px, 18vw, 76px);
+    line-height: 0.98;
+    letter-spacing: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .role {
+    font-size: 12px;
+    letter-spacing: 2px;
+    line-height: 1.45;
+  }
+
+  .pitch {
+    max-width: 100%;
+    font-size: 15px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .stats {
+    margin-top: 34px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat {
+    padding: 18px 16px;
+  }
+
+  .scrollCue {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
 }

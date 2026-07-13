@@ -19,7 +19,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
   gap: 56px;
   align-items: start;
 }
@@ -102,7 +102,7 @@
 
 .techGrid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
   gap: 12px;
 }
 
@@ -131,4 +131,48 @@
   letter-spacing: 0.5px;
   color: rgba(206, 227, 242, 0.7);
   text-align: center;
+}
+
+@media (max-width: 1080px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+}
+
+@media (max-width: 760px) {
+  .skills {
+    min-height: auto;
+    padding: 58px 0;
+  }
+
+  .title {
+    font-size: clamp(34px, 14vw, 52px);
+    line-height: 1.04;
+    margin-bottom: 32px;
+    overflow-wrap: anywhere;
+  }
+
+  .barRow {
+    gap: 12px;
+  }
+
+  .iconBox {
+    width: 38px;
+    height: 38px;
+    font-size: 19px;
+  }
+
+  .barHead {
+    gap: 12px;
+  }
+
+  .barName {
+    font-size: 10px;
+    letter-spacing: 1.2px;
+  }
+
+  .techGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }

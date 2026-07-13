@@ -112,7 +112,38 @@
 
 @media (max-width: 760px) {
   .terminal {
-    right: 18px;
-    bottom: 86px;
+    right: 14px;
+    bottom: 78px;
+  }
+
+  .panel {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 144px;
+    width: auto;
+    height: min(360px, calc(100svh - 230px));
+  }
+
+  .header {
+    min-height: 40px;
+    font-size: 13px;
+  }
+
+  .output {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 420px) {
+  .toggle {
+    width: 46px;
+    height: 46px;
+    font-size: 22px;
+  }
+
+  .panel {
+    bottom: 132px;
+    height: min(320px, calc(100svh - 210px));
   }
 }
