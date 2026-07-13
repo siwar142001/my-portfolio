@@ -82,6 +82,11 @@
   box-shadow: 0 0 18px rgba(109, 255, 187, 0.74);
 }
 
+.radio:has(.errorMessage) .statusLight {
+  background: #ff7b7b;
+  box-shadow: 0 0 18px rgba(255, 123, 123, 0.65);
+}
+
 .field {
   display: grid;
   gap: 7px;
@@ -102,6 +107,8 @@
   padding: 13px 14px;
   outline: none;
   resize: vertical;
+  cursor: text;
+  caret-color: var(--color-accent);
 }
 
 .field input:focus,
@@ -123,6 +130,18 @@
 
 .sendButton:hover {
   background: #75cbff;
+}
+
+.sendButton:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.errorMessage {
+  margin: -2px 0 0;
+  color: #ffb5b5;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .wave {

@@ -51,6 +51,13 @@
   background: rgba(55, 176, 255, 0.32);
 }
 
+.page input,
+.page textarea,
+.page select,
+.page [contenteditable='true'] {
+  cursor: text;
+}
+
 .ambientLife {
   position: fixed;
   left: 0;

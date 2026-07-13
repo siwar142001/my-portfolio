@@ -13,6 +13,10 @@
   box-shadow: 0 0 18px rgba(88, 207, 255, 0.42), inset 0 0 12px rgba(88, 207, 255, 0.22);
 }
 
+.hidden {
+  opacity: 0;
+}
+
 .cursor::before,
 .cursor::after {
   content: '';
