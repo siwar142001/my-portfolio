@@ -275,4 +275,4 @@ export const timeline: TimelineEntry[] = [
   },
 ];
 
-export const contactEmail = 'selmisi@gmail.com';
+export const contactEmail = 'selmisiwar3@gmail.com';
